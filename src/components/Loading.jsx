@@ -14,16 +14,21 @@ function Loading() {
   return (
     <div className="h-screen flex items-center justify-center min-h-screen bg-stone-900">
       <div className="text-center text-white">
-        <p className="text-lg  mb-4">
-          Getting Nemen ready <br /> {progress}%
-        </p>
+        {/* NEMEN Text with fill effect */}
+        <div className="relative w-full">
+          <div className="text-[8rem] font-header font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-400 ">
+            NEMEN
+          </div>
 
-        <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
+          {/* Fill effect behind the text */}
           <div
-            className="h-full bg-orange-400 transition-all duration-200 ease-out"
+            className="absolute top-0 left-0 text-[8rem] font-bold bg-orange-400 text-orange-400 overflow-hidden mix-blend-difference"
             style={{ width: `${progress}%` }}
-          ></div>
-        </div>
+          >
+            NEMEN
+          </div>
+        </div>{" "}
+        <p className="text-lg mb-4 font-text">{progress}%</p>
       </div>
     </div>
   );

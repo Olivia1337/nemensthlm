@@ -19,10 +19,15 @@ function Home() {
     }
     requestAnimationFrame(raf);
 
-    const timer = setTimeout(() => {
+    const minimumLoadingTime = 2000;
+
+    const timer = new Promise((resolve) =>
+      setTimeout(resolve, minimumLoadingTime)
+    );
+
+    Promise.all([document.fonts.ready, timer]).then(() => {
       setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
+    });
   }, []);
 
   if (loading) {
